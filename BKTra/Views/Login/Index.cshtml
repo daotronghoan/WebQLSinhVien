@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Vui lòng đăng nhập để sử dụng</h2>
+
+@using (Html.BeginForm("CheckLogin", "Login"))
+{
+    <div>
+        @Html.Label("Tên đăng nhập")
+    </div>
+    <div>
+        @Html.TextBox("Username")
+    </div>
+    <div>
+        @Html.Label("Mật khẩu")
+    </div>
+    <div>
+        @Html.Password("password")
+    </div>
+    <br />
+    <input type="submit" value="Đăng Nhập" />
+    <br />
+    @ViewBag.msg
+}

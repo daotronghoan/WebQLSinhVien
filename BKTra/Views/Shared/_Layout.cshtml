@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style>
+        body {
+            background: #c3c3c3;
+            font-family: 'Tahoma', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .chung {
+            width: 100%;
+            background-color: white;
+            border: 10px solid white;
+            margin: 20px auto;
+        }
+
+        header {
+            width: 100%;
+            margin: 0px;
+            height: 10%;
+            background-color: #FF6600;
+            color: #FFFFFF;
+        }
+
+            header h1 {
+                text-align: center;
+                margin: 0px;
+            }
+
+        nav {
+            background-color: #BE0000;
+            height: 15%;
+            width: 100%;
+            box-sizing: border-box;
+            color: #FFFFFF
+        }
+
+            nav ul {
+                text-align: right;
+                margin-top: 1px;
+            }
+
+                nav ul li {
+                    padding: 5px 20px;
+                    border-left: 5px solid white;
+                    display: inline-block;
+                }
+
+                    nav ul li a {
+                        text-decoration: none;
+                        font-weight: bold;
+                        background-color: #BE0000;
+                        color: #FFFFFF
+                    }
+
+                        nav ul li a:hover {
+                            font-weight: bold;
+                            color: #BE0000;
+                        }
+    </style>
+</head>
+<body>
+    <div class="chung">
+        <header>
+            <h1>THÔNG TIN SINH VIÊN TRƯỜNG A</h1>
+        </header>
+        @*<nav>
+            <ul>
+                <li>@Html.ActionLink("Xem danh sách", "Index", "HocSinhs", new { area = "" }, new { @class = "nav-link" })</li>
+                <li>@Html.ActionLink("Thêm dữ liệu", "Create", "HocSinhs", new { area = "" }, new { @class = "nav-link" })</li>
+            </ul>
+        </nav>*@
+        <div>
+            @RenderBody()
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

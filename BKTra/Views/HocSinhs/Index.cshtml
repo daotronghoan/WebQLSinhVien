@@ -1,0 +1,70 @@
+﻿@model IEnumerable<BKTra.Models.HocSinh>
+
+@{
+    ViewBag.Title = "Index";
+}
+<nav>
+        <ul>
+            <li>@Html.ActionLink("Xem danh sách", "Index", "HocSinhs", new { area = "" }, new { @class = "nav-link" })</li>
+            <li>@Html.ActionLink("Thêm dữ liệu", "Create", "HocSinhs", new { area = "" }, new { @class = "nav-link" })</li>
+        </ul>
+    </nav>
+<h2>Thông tin lớp học</h2>
+
+@using (Html.BeginForm())
+{
+    <p>
+        @Html.ActionLink("Thêm thông tin sinh viên mới", "Create")
+    </p>
+    <p>
+        Tìm thông tin sinh viên: @Html.TextBox("search")
+        <input type="submit" value="Tìm" />
+    </p>
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.LopHoc.tenlop)
+        </th>
+        <th>
+            @Html.ActionLink("Họ Tên", "Index", new { sortOrder = ViewBag.SapTen })
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.anhduthi)
+        </th>
+        <th>
+            @Html.ActionLink("Điểm", "Index", new { sortOrder = ViewBag.SapDiem })
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.LopHoc.tenlop)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.hoten)
+            </td>
+            <td>
+                @{
+                    string a = "~/Anh/Images/" + item.anhduthi;
+                }
+                <img src="@Url.Content(a)" width="100" class="img-thumbnail" />
+                <br />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.diemthi)
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "Edit", new { id = item.sbd.Trim() }) |
+                @Html.ActionLink("Chi tiết", "Details", new { id = item.sbd.Trim() }) |
+                @Html.ActionLink("Xóa", "Delete", new { id = item.sbd.Trim() })
+            </td>
+        </tr>
+    }
+
+</table>
+@Html.ActionLink("Đăng xuất", "Logout", "Login")

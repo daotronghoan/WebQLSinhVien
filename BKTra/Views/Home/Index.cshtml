@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<div>
+    @*<h1>Chào bạn</h1>*@
+    @if (Session["user"] == null)
+    {
+        <p>@Html.ActionLink("Đăng nhập", "Index", "Login")</p>
+    }
+    else
+    {
+        <h1 @*style="color:blue"*@>Chào mừng bạn trở lại@*@Session["user"]*@</h1>
+        <h1>@Html.Label("Hôm nay là thứ :")<text></text>@DateTime.Now.DayOfWeek</h1>
+        <h2 style="color:blue">@Html.ActionLink("Xem danh sách", "Index", "HocSinhs", new { area = "" }, new { @class = "nav-link" })</h2>
+        @Html.ActionLink("Đăng xuất", "Logout", "Login")
+    }
+</div>
